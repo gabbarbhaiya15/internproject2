@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-
+const path = require('path');
 const Alluser = require('./Controller/Alluser');
 const Member = require('./Controller/Member');
 const Showmember = require('./Controller/Showmember');
@@ -32,6 +32,12 @@ app.use('/Alluser', Alluser);
 app.use('/member', Member);
 app.use('/showmember', Showmember);
 app.use('/userdetail',userdetail)
+
+app.use(express.static('Frontend/public'))
+    
+    app.get("*",(req,res)=>{
+        res.sendFile(path.resolve(__dirname,'Frontend','public','Index.html'))
+    })
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
