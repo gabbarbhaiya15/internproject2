@@ -8,7 +8,7 @@ const Selecteduser = () => {
 
     const fetchData = async (id) => {
         try {
-            const result = await axios.get(`http://localhost:5000/userdetail/${id}`, {
+            const result = await axios.get(`https://internproject2.onrender.com/userdetail/${id}`, {
                 withCredentials: true,
             });
             setuserData(prevState => ({ ...prevState, [id]: result.data }));
@@ -20,7 +20,7 @@ const Selecteduser = () => {
     useEffect(() => {
         const fetchmemberData = async () => {
             try {
-                const { data } = await axios.get('http://localhost:5000/showmember');
+                const { data } = await axios.get('https://internproject2.onrender.com/showmember');
                 setUser(data);
                 console.log(data);
             } catch (error) {
