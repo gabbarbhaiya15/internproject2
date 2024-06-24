@@ -6,7 +6,7 @@ const Alluser = () => {
     const [Data, setData] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/Alluser", { withCredentials: true })
+        axios.get("https://internproject2.onrender.com/Alluser", { withCredentials: true })
             .then((res) => {
                 console.log(res.data);
                 setData(res.data);
@@ -18,7 +18,7 @@ const Alluser = () => {
 
     const collectdata = async (id) => {
         console.log("registration started");
-        await axios.post('http://localhost:5000/member', {
+        await axios.post('https://internproject2.onrender.com/member', {
             memberid: [id]
         }, { withCredentials: true })
             .then((res) => {
